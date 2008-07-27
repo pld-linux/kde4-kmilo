@@ -3,7 +3,7 @@
 Summary:	K Desktop Environment - kmilo
 Name:		kde4-kmilo
 Version:	4.1.0
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	GPL
 Group:		X11/Applications
 # svn export svn://anonsvn.kde.org/home/kde/tags/unmaintained/4/kmilo
@@ -12,7 +12,8 @@ Source0:	%{orgname}-%{snap}.tar.bz2
 Patch0:		%{name}-build.patch
 URL:		http://www.kde.org/
 BuildRequires:	automoc4 >= 0.9.83
-BuildRequires:	kde4-kdebase-devel >= %{version}
+BuildRequires:	kde4-kdebase-devel >= 4.1.0
+BuildRequires:	kde4-kdepimlibs-devel >= 4.1.0
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
