@@ -1,0 +1,71 @@
+diff -ur kmilo.org/asus/CMakeLists.txt kmilo/asus/CMakeLists.txt
+--- kmilo.org/asus/CMakeLists.txt	2008-07-27 18:58:28.055183000 +0200
++++ kmilo/asus/CMakeLists.txt	2008-07-27 19:02:55.591824031 +0200
+@@ -1,5 +1,5 @@
+ 
+-include_directories(${CMAKE_SOURCE_DIR}/kmilo/kmilod  )
++include_directories(${CMAKE_SOURCE_DIR}/kmilod  )
+ 
+ 
+ ########### next target ###############
+diff -ur kmilo.org/CMakeLists.txt kmilo/CMakeLists.txt
+--- kmilo.org/CMakeLists.txt	2008-07-27 18:58:28.215184000 +0200
++++ kmilo/CMakeLists.txt	2008-07-27 19:01:22.849124293 +0200
+@@ -1,4 +1,20 @@
+-include(CheckIncludeFile)
++project(kmilo)
++
++set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules )
++
++# search packages used by KDE
++find_package( KDE4 REQUIRED )
++find_package( Blitz )
++find_package( KdepimLibs REQUIRED )
++include( KDE4Defaults )
++include( MacroLibrary )
++include( MacroOptionalAddSubdirectory )
++
++set( CMAKE_REQUIRED_DEFINITIONS ${_KDE4_PLATFORM_DEFINITIONS} )
++
++add_definitions( ${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS} )
++include_directories( ${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES} )
++
+ check_include_files(linux/sonypi.h HAVE_KMILO_KVIAO)
+ 
+ set(CMAKE_MODULE_LINKER_FLAGS "")
+diff -ur kmilo.org/delli8k/CMakeLists.txt kmilo/delli8k/CMakeLists.txt
+--- kmilo.org/delli8k/CMakeLists.txt	2008-07-27 18:58:28.122474000 +0200
++++ kmilo/delli8k/CMakeLists.txt	2008-07-27 19:03:17.662237526 +0200
+@@ -1,4 +1,4 @@
+-include_directories(${CMAKE_SOURCE_DIR}/kmilo/kmilod  )
++include_directories(${CMAKE_SOURCE_DIR}/kmilod  )
+ 
+ 
+ 
+diff -ur kmilo.org/kmilo_kvaio/CMakeLists.txt kmilo/kmilo_kvaio/CMakeLists.txt
+--- kmilo.org/kmilo_kvaio/CMakeLists.txt	2008-07-27 18:58:27.751850000 +0200
++++ kmilo/kmilo_kvaio/CMakeLists.txt	2008-07-27 19:00:50.805168657 +0200
+@@ -1,9 +1,9 @@
+ 
+-set(kmilo_kvaio_interface_SRCS ${CMAKE_SOURCE_DIR}/kmilo/kmilo_kvaio/kvaiodriverinterface.cpp )
++set(kmilo_kvaio_interface_SRCS ${CMAKE_SOURCE_DIR}/kmilo_kvaio/kvaiodriverinterface.cpp )
+ 
+ add_subdirectory( kcmkvaio ) 
+ 
+-include_directories( ${CMAKE_SOURCE_DIR}/kmilo/kmilod  )
++include_directories( ${CMAKE_SOURCE_DIR}/kmilod  )
+ 
+ 
+ ########### next target ###############
+diff -ur kmilo.org/thinkpad/CMakeLists.txt kmilo/thinkpad/CMakeLists.txt
+--- kmilo.org/thinkpad/CMakeLists.txt	2008-07-27 18:58:27.368516000 +0200
++++ kmilo/thinkpad/CMakeLists.txt	2008-07-27 19:02:12.291827727 +0200
+@@ -2,7 +2,7 @@
+ 
+ add_subdirectory( kcmthinkpad ) 
+ 
+-include_directories(${CMAKE_SOURCE_DIR}/kmilo/kmilod  )
++include_directories(${CMAKE_SOURCE_DIR}/kmilod  )
+ 
+ 
+ ########### next target ###############
