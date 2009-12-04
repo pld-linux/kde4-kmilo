@@ -11,9 +11,13 @@ Source0:	%{orgname}-%{snap}.tar.bz2
 # Source0-md5:	423baeae545e02d61a8153e74b483408
 Patch0:		%{name}-build.patch
 URL:		http://www.kde.org/
+BuildRequires:	Qt3Support-devel
+BuildRequires:	QtSvg-devel
 BuildRequires:	automoc4 >= 0.9.83
 BuildRequires:	kde4-kdebase-devel >= 4.1.0
 BuildRequires:	kde4-kdepimlibs-devel >= 4.1.0
+BuildRequires:	qt4-build
+BuildRequires:	qt4-qmake
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
