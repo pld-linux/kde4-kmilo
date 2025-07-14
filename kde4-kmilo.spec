@@ -26,7 +26,7 @@ KMILO.
 
 %prep
 %setup -q -n %{orgname}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 install -d build
